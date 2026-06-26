@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos - Tour P2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <style>
+        :root {
+            --primary-color: #E50000;
+            --background-dark: #4e2c13;
+            --text-light: #ffffff;
+            --text-grey: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #94765f;
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* HEADER OFICIAL DO PROJETO */
+        header {
+            background-color: var(--background-dark);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5vw;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            display: flex;          
+            align-items: center;     
+            gap: 10px;    
+            color: var(--text-light);       
+        }
+
+        .logo-img {
+            width: 50px;            
+            height: auto;
+        }
+
+        .links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .links a {
+            font-weight: 500;
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: #d6d6d6;
+            transition: all 0.3s ease;
+        }
+
+        .links a:hover, .links li.ativo a {
+            color: rgb(255, 255, 255); 
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* BANNER DE TOPO (40vh padronizado) */
+        .banner-secao {
+            position: relative;
+            height: 40vh;
+            background-image: url('fetejo.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-color: rgba(0,0,0,0.6); 
+            background-blend-mode: darken; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5vw;
+        }
+
+        .banner-conteudo {
+            z-index: 2;
+            color: white;
+        }
+
+        .banner-conteudo h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .banner-conteudo p {
+            font-weight: 300;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* ÁREA PRINCIPAL DO CONTEÚDO */
+        .container-eventos {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 5vw;
+        }
+
+        .titulo-secao {
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--background-dark);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .titulo-secao::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* GRID DE EVENTOS */
+        .grid-eventos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card-evento {
+            height: 360px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-evento:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-evento::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0.2) 100%);
+            z-index: 1;
+        }
+
+        .info-evento {
+            position: relative;
+            z-index: 2;
+            padding: 25px;
+            color: #ffffff;
+        }
+
+        .categoria {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 5px;
+        }
+
+        .nome-evento {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .detalhes {
+            font-size: 0.85rem;
+            color: #d6d6d6;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 300;
+        }
+
+        /* EVENTO DESTAQUE CUSTOMIZADO */
+        .evento-destaque {
+            background-image: url('festa.jpg');
+            background-size: cover;
+            background-position: center;
+            background-color: rgba(0,0,0,0.75);
+            background-blend-mode: darken;
+            border-radius: 16px;
+            padding: 60px;
+            color: #ffffff;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .evento-destaque-conteudo {
+            max-width: 600px;
+        }
+
+        .evento-destaque h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin: 10px 0 15px;
+        }
+
+        .evento-destaque p {
+            color: #e0e0e0;
+            font-weight: 300;
+            margin-bottom: 25px;
+        }
+
+        /* BOTÃO PADRONIZADO COM O RESTO DO SITE */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(229, 0, 0, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #ffffff;
+            color: var(--background-dark);
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* BOTÃO VOLTAR FLUTUANTE */
+        .voltar {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            font-size: 1.5rem;
+            z-index: 2000;
+            background: var(--background-dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .voltar.mostrar {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .voltar:hover {
+            background-color: var(--primary-color);
+        }
+
+
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .banner-secao {
+                height: 30vh;
+            }
+            .banner-conteudo h1 {
+                font-size: 2.2rem;
+            }
+            .evento-destaque {
+                padding: 30px;
+            }
+            .evento-destaque h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="#topo" class="voltar" id="btnVoltar"><i class="ri-arrow-up-line"></i></a>
+
+    <header id="topo">
+        <nav class="menu">
+            <span class="logo">
+                <img src="logo2.png" alt="Logo" class="logo-img">
+                TOUR P2
+            </span>
+            <ul class="links">
+                <li><a href="tour.html">Início</a></li>
+                <li><a href="hospedagens.html">Hospedagens</a></li>
+                <li><a href="pontosturísticos.html">Pontos Turísticos</a></li>
+                <li class="ativo"><a href="eventos.html">Eventos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="banner-secao">
+        <div class="banner-conteudo">
+            <h1>Eventos de Pedro II</h1>
+            <p>Viva de perto a cultura, a tradição e a música vibrante da nossa cidade</p>
+        </div>
+    </section>
+
+    <main class="container-eventos">
+        
+        <h2 class="titulo-secao">Agenda Cultural</h2>
+
+        <div class="grid-eventos">
+            
+            <div class="card-evento" style="background-image: url('festival.jpeg');">
+                <div class="info-evento">
+                    <span class="categoria"><i class="ri-music-2-line"></i> Cultural</span>
+                    <h3 class="nome-evento">Festival de Inverno</h3>
+                    <p class="detalhes"><i class="ri-calendar-line"></i> Junho • Praça Domingos Mourão</p>
+                </div>
+            </div>
+
+            <div class="card-evento" style="background-image: url('artes.jpeg');">
+                <div class="info-evento">
+                    <span class="categoria"><i class="ri-palette-line"></i> Artesanato</span>
+                    <h3 class="nome-evento">Feira Artesanal</h3>
+                    <p class="detalhes"><i class="ri-calendar-line"></i> Junho • Praça da Matriz</p>
+                </div>
+            </div>
+
+            <div class="card-evento" style="background-image: url('igreja.jpg');">
+                <div class="info-evento">
+                    <span class="categoria"><i class="ri-heart-line"></i> Religioso</span>
+                    <h3 class="nome-evento">Festa da Padroeira</h3>
+                    <p class="detalhes"><i class="ri-calendar-line"></i> Novembro • Igreja Matriz</p>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="evento-destaque">
+            <div class="evento-destaque-conteudo">
+                <span class="categoria"><i class="ri-star-fill"></i> Evento Principal</span>
+                <h2>Festival de Inverno de Pedro II</h2>
+                <p>O maior evento cultural da cidade, reunindo grandes nomes da música nacional e regional, gastronomia refinada, eco-turismo e feiras de opala em um clima de serra maravilhoso.</p>
+                <a href="festival.html" class="btn">Ver Programação</a>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const btn = document.getElementById('btnVoltar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > window.innerHeight * 0.4) {
+                btn.classList.add('mostrar');
+            } else {
+                btn.classList.remove('mostrar');
+            }
+        });
+    </script>
+    
+</body>
+</html>
