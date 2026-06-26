@@ -4,7 +4,7 @@ Bem-vindo ao **TourP2**, o projeto integrador desenvolvido pela nossa equipe. No
 
 ---
 
-## 👥 Integrantes do Grupo
+## Integrantes do Grupo
 * 🔸 **Eduarda Reis**
 * 🔸 **Mirella Paixão**
 * 🔸 **Maria Ingrid**
@@ -13,7 +13,7 @@ Bem-vindo ao **TourP2**, o projeto integrador desenvolvido pela nossa equipe. No
 
 ---
 
-##  Sobre o Projeto
+## Sobre o Projeto
 Pedro II é conhecida por seu clima agradável, festival de inverno e riquezas naturais. Este projeto foi criado para ajudar turistas a encontrarem o lugar perfeito para se hospedar. O site reúne informações sobre:
 
 * 🏠 **Casas de temporada**
@@ -23,7 +23,7 @@ Pedro II é conhecida por seu clima agradável, festival de inverno e riquezas n
 
 ---
 
-##  Galeria de Fotos (Artefatos)
+## Galeria de Fotos (Artefatos)
 Aqui estão algumas das hospedagens e locais incríveis que mapeamos no projeto:
 
 <div align="center">
@@ -36,7 +36,7 @@ Aqui estão algumas das hospedagens e locais incríveis que mapeamos no projeto:
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 O projeto foi desenvolvido utilizando as seguintes tecnologias web modernas:
 * 🌐 **HTML:** Para a estruturação das páginas, menus e organização dos textos.
 * 🎨 **CSS:** Para a estilização, escolha de cores, fontes atraentes e design responsivo do site.
