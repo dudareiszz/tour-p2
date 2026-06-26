@@ -19,7 +19,7 @@ Pedro II é conhecida por seu clima agradável, festival de inverno e riquezas n
 * 🏠 **Casas de temporada**
 * 🏡 **Chalés aconchegantes**
 * 🏨 **Hotéis e pousadas**
-* 🌊 **Principais pontos de ecoturismo** (cachoeiras e trilhas)
+* 🌊 **cachoeiras e trilhas**
 
 ---
 
@@ -39,4 +39,4 @@ Pedro II é conhecida por seu clima agradável, festival de inverno e riquezas n
 ## 🛠️ Tecnologias Utilizadas
 O projeto foi desenvolvido utilizando as seguintes tecnologias web modernas:
 * 🌐 **HTML:** Para a estruturação das páginas, menus e organização dos textos.
-* 🎨 **CSS3:** Para a estilização, escolha de cores, fontes atraentes e design responsivo do site.
+* 🎨 **CSS:** Para a estilização, escolha de cores, fontes atraentes e design responsivo do site.
