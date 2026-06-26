@@ -29,10 +29,10 @@ Aqui estão algumas das hospedagens e locais incríveis que mapeamos no projeto:
 <div align="center">
 
 | Chalé da Serra | Cachoeira do Urubu Rei | Cachoeira do Salto Liso |
+| :---: | :---: | :---: |
 | <img src="chale.jpeg" width="240" style="border-radius: 8px;"> | <img src="urubu.jpeg" width="240" style="border-radius: 8px;"> | <img src="saltoliso.jpg" width="240" style="border-radius: 8px;"> |
 
 </div>
-
 ---
 
 ## 🛠️ Tecnologias Utilizadas
