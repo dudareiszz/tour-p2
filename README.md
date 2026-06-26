@@ -23,7 +23,7 @@ Pedro II é conhecida por seu clima agradável, festival de inverno e riquezas n
 
 ---
 
-## Galeria de Fotos (Artefatos)
+## Galeria de Fotos
 Aqui estão algumas das hospedagens e locais incríveis que mapeamos no projeto:
 
 <div align="center">
