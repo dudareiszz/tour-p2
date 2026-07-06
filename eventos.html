@@ -23,7 +23,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #94765f;
+            background-color:  #4e2c13;
             color: #333;
             line-height: 1.6;
             scroll-behavior: smooth;
@@ -33,7 +33,6 @@
             text-decoration: none;
         }
 
-      
         header {
             background-color: var(--background-dark);
             position: sticky;
@@ -83,7 +82,6 @@
             border-bottom: 2px solid var(--primary-color);
         }
 
-    
         .banner-secao {
             position: relative;
             height: 40vh;
@@ -117,7 +115,6 @@
             font-size: 1.1rem;
             opacity: 0.9;
         }
-
 
         .container-eventos {
             max-width: 1200px;
@@ -213,7 +210,6 @@
             font-weight: 300;
         }
 
-   
         .evento-destaque {
             background-image: url('festa.jpg');
             background-size: cover;
@@ -342,8 +338,6 @@
     </section>
 
     <main class="container-eventos">
-        
-        <h2 class="titulo-secao">Agenda Cultural</h2>
 
         <div class="grid-eventos">
             
@@ -385,8 +379,8 @@
     </main>
 
     <script>
+        // 1. Controle do Botão Voltar ao Topo (Melhorado)
         const btn = document.getElementById('btnVoltar');
-        
         window.addEventListener('scroll', () => {
             if (window.scrollY > window.innerHeight * 0.4) {
                 btn.classList.add('mostrar');
@@ -394,7 +388,59 @@
                 btn.classList.remove('mostrar');
             }
         });
+
+        // 2. Tornar os Cards Inteiramente Clicáveis via JS
+        // Isso evita quebrar o layout do CSS usando tags <a> em volta do card
+        const cards = document.querySelectorAll('.card-evento');
+        
+        // Mapeia qual página cada card deve abrir baseado no nome do evento
+        const paginasEventos = {
+            "Festival de Inverno": "festival.html",
+            "Feira Artesanal": "artesanato.html", // Mude para o nome correto do seu arquivo da feira
+            "Festa da Padroeira": "festejo.html"
+        };
+
+        cards.forEach(card => {
+            // Deixa o cursor com formato de "mãozinha" para indicar que é clicável
+            card.style.cursor = 'pointer';
+            
+            card.addEventListener('click', () => {
+                const nomeEvento = card.querySelector('.nome-evento').innerText.trim();
+                const urlDestino = paginasEventos[nomeEvento];
+                
+                if (urlDestino) {
+                    window.location.href = urlDestino;
+                }
+            });
+        });
+
+        // 3. Efeito Scroll Reveal (Revelar os cards conforme desce a página)
+        // Cria uma animação suave de entrada para a seção de destaque
+        const secaoDestaque = document.querySelector('.evento-destaque');
+        
+        // Configura o estilo inicial da animação via JS
+        secaoDestaque.style.opacity = '0';
+        secaoDestaque.style.transform = 'translateY(30px)';
+        secaoDestaque.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+
+        const revealOnScroll = () => {
+            const elementoTopo = secaoDestaque.getBoundingClientRect().top;
+            const janelaAltura = window.innerHeight;
+            
+            // Ativa quando o bloco de destaque aparece na tela
+            if (elementoTopo < janelaAltura - 50) {
+                secaoDestaque.style.opacity = '1';
+                secaoDestaque.style.transform = 'translateY(0)';
+                // Remove o evento depois que animou a primeira vez
+                window.removeEventListener('scroll', revealOnScroll);
+            }
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        // Executa uma vez no início caso o usuário já recarregue a página no meio
+        revealOnScroll(); 
     </script>
+   
     
 </body>
 </html>
