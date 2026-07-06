@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Festa da Padroeira - Pedro II</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #d60000;
+      --secondary-color: #ffffff;
+      --background-dark: #4e2c13;
+      --text-light: #fff;
+      --card-bg: #6b341b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("greja.png");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: var(--text-light);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--text-light);
+    }
+
+    .voltar {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #fff;
+      z-index: 10;
+      opacity: 0.85;
+      transition: 0.3s;
+    }
+
+    .voltar:hover {
+      opacity: 1;
+      transform: translateX(-5px);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 5vw 60px;
+    }
+
+    .descricao-evento h2,
+    .programacao h2 {
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .descricao-evento p {
+      margin-bottom: 18px;
+      opacity: 0.95;
+      font-size: 1.05rem;
+    }
+
+    .linha {
+      width: 100%;
+      height: 3px;
+      background: var(--primary-color);
+      border-radius: 2px;
+      margin: 40px 0;
+      opacity: 0.7;
+    }
+
+    .dia-programacao {
+      margin-bottom: 40px;
+    }
+
+    .dia-programacao h3 {
+      color: var(--primary-color);
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .item-programacao {
+      display: flex;
+      gap: 25px;
+      padding: 18px 20px;
+      background: var(--card-bg);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 6px;
+      margin-bottom: 15px;
+      transition: 0.3s;
+    }
+
+    .item-programacao:hover {
+      background: #3a240b;
+      transform: translateX(5px);
+    }
+
+    .horario {
+      font-weight: 700;
+      font-size: 1.1rem;
+      min-width: 80px;
+      color: var(--secondary-color);
+    }
+
+    .info strong {
+      font-size: 1.05rem;
+    }
+
+    .info p {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin-top: 3px;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .galeria img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      background: var(--card-bg);
+      box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+      transition: 0.35s;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 35px rgba(0,0,0,0.6);
+    }
+
+    @media (max-width: 600px) {
+      .item-programacao {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="eventos.html" class="voltar">←</a>
+
+<main>
+
+  <section class="descricao-evento">
+    <h2>Festejos de Nossa Senhora da Conceição</h2>
+
+    <p>
+      A tradicional Festa da Padroeira é um dos momentos mais marcantes e de grande devoção em Pedro II, reunindo milhares de fiéis e visitantes em celebrações religiosas e culturais.
+    </p>
+
+    <p>
+      Além das missas e procissões, o evento conta com apresentações culturais na praça, barracas de comidas típicas e momentos de confraternização comunitária.
+    </p>
+  </section>
+
+  <div class="linha"></div>
+
+  <section class="programacao">
+    <h2>Programação do Evento</h2>
+
+    <div class="dia-programacao">
+      <h3> Domingo • 28 de Novembro</h3>
+
+      <div class="item-programacao">
+        <span class="horario">05:00</span>
+        <div class="info">
+          <strong>Abertura dos festejos</strong>
+          <p>Igreja Matriz de Nossa Senhora da Conceição</p>
+        </div>
+      </div>
+
+        <div class="item-programacao">
+          <span class="horario">17:30</span>
+          <div class="info">
+            <strong>Procissão</strong>
+            <p>Igreja Matriz de Nossa Senhora da Conceição</p>
+          </div>
+        </div>
+
+      <div class="item-programacao">
+        <span class="horario">19:00</span>
+        <div class="info">
+          <strong>Missa</strong>
+          <p>Praça da Matriz</p>
+        </div>
+      </div>
+
+      <div class="item-programacao">
+        <span class="horario">21:00</span>
+        <div class="info">
+          <strong>Apresentação da Banda de Música Mestre alessandro</strong>
+          <p>Palco da Praça da Matriz</p>
+        </div>
+      </div>
+
+    <div class="dia-programacao">
+      <h3> Segunda-Feira • 29 de Dezembro</h3>
+
+      <div class="item-programacao">
+        <span class="horario">19:00</span>
+        <div class="info">
+          <strong>Missa</strong>
+          <p>Principais ruas do centro</p>
+        </div>
+      </div>
+    
+      <div class="item-programacao">
+        <span class="horario">20:30</span>
+        <div class="info">
+          <strong>Movimento de Barracas e Leilão</strong>
+          <p>Praça da Matriz • Espaço Cultural</p>
+        </div>
+      </div>
+   
+    </div>
+  </section>
+
+  <div class="linha"></div>
+
+  <section class="galeria">
+    <img src="igreja.jpg" alt="Igreja Matriz Pedro II">
+    <img src="proci.jpg" alt="Procissão em Pedro II">
+    <img src="ssao.jpg" alt="Praça da Matriz movimentada">
+  </section>
+
+</main>
+
+</body>
+</html>
