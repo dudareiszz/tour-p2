@@ -1,254 +1,415 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Festa da Padroeira - Pedro II</title>
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festa da Padroeira | Tour P2</title>
 
-  <style>
-    :root {
-      --primary-color: #d60000;
-      --secondary-color: #ffffff;
-      --background-dark: #4e2c13;
-      --text-light: #fff;
-      --card-bg: #6b341b;
-    }
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <style>
+        :root {
+            --primary: #d60000;
+            --dark: #4e2c13;
+            --card: #6b341b;
+            --white: #ffffff;
+            --cinza: #d8d8d8;
+        }
 
-    body {
-      font-family: "Poppins", sans-serif;
-      background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("greja.png");
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      color: var(--text-light);
-      line-height: 1.7;
-      min-height: 100vh;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    a {
-      text-decoration: none;
-      color: var(--text-light);
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    .voltar {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #fff;
-      z-index: 10;
-      opacity: 0.85;
-      transition: 0.3s;
-    }
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #2f180c;
+            color: white;
+        }
 
-    .voltar:hover {
-      opacity: 1;
-      transform: translateX(-5px);
-    }
+        a {
+            text-decoration: none;
+            color: white;
+        }
 
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 80px 5vw 60px;
-    }
+        .voltar {
+            position: fixed;
+            top: 25px;
+            left: 25px;
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, .5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+            font-size: 24px;
+            transition: .3s;
+            z-index: 1000;
+        }
 
-    .descricao-evento h2,
-    .programacao h2 {
-      font-size: 2.2rem;
-      text-transform: uppercase;
-      color: var(--secondary-color);
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
+        .voltar:hover {
+            background: var(--primary);
+            transform: translateX(-5px);
+        }
 
-    .descricao-evento p {
-      margin-bottom: 18px;
-      opacity: 0.95;
-      font-size: 1.05rem;
-    }
+        .hero {
+            height: 55vh;
+            background: linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)), url("greja.png");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
 
-    .linha {
-      width: 100%;
-      height: 3px;
-      background: var(--primary-color);
-      border-radius: 2px;
-      margin: 40px 0;
-      opacity: 0.7;
-    }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
 
-    .dia-programacao {
-      margin-bottom: 40px;
-    }
+        .hero p {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            color: #ececec;
+        }
 
-    .dia-programacao h3 {
-      color: var(--primary-color);
-      font-size: 1.3rem;
-      margin-bottom: 20px;
-    }
+        .hero .btn {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 15px 40px;
+            background: var(--primary);
+            border-radius: 40px;
+            font-weight: 600;
+            transition: .3s;
+        }
 
-    .item-programacao {
-      display: flex;
-      gap: 25px;
-      padding: 18px 20px;
-      background: var(--card-bg);
-      border-left: 4px solid var(--primary-color);
-      border-radius: 6px;
-      margin-bottom: 15px;
-      transition: 0.3s;
-    }
+        .hero .btn:hover {
+            background: white;
+            color: #4e2c13;
+        }
 
-    .item-programacao:hover {
-      background: #3a240b;
-      transform: translateX(5px);
-    }
+        .container {
+            width: min(1200px, 92%);
+            margin: auto;
+        }
 
-    .horario {
-      font-weight: 700;
-      font-size: 1.1rem;
-      min-width: 80px;
-      color: var(--secondary-color);
-    }
+        .info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: -70px;
+            position: relative;
+            z-index: 50;
+        }
 
-    .info strong {
-      font-size: 1.05rem;
-    }
+        .card-info {
+            background: rgba(107, 52, 27, .95);
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .30);
+            transition: .4s;
+        }
 
-    .info p {
-      font-size: 0.9rem;
-      opacity: 0.85;
-      margin-top: 3px;
-    }
+        .card-info:hover {
+            transform: translateY(-8px);
+        }
 
-    .galeria {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-      margin-top: 20px;
-    }
+        .card-info i {
+            font-size: 35px;
+            color: #ffb000;
+            margin-bottom: 15px;
+        }
 
-    .galeria img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 12px;
-      background: var(--card-bg);
-      box-shadow: 0 5px 25px rgba(0,0,0,0.5);
-      transition: 0.35s;
-    }
+        .card-info h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
 
-    .galeria img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 35px rgba(0,0,0,0.6);
-    }
+        .card-info p {
+            font-size: 15px;
+            color: #ddd;
+        }
 
-    @media (max-width: 600px) {
-      .item-programacao {
-        flex-direction: column;
-        gap: 8px;
-      }
-    }
-  </style>
+        .sobre {
+            margin: 90px 0;
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .sobre h2 {
+            font-size: 2.3rem;
+            margin-bottom: 20px;
+        }
+
+        .sobre p {
+            margin-bottom: 18px;
+            line-height: 1.8;
+            color: #efefef;
+        }
+
+        .lista {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .lista div {
+            background: rgba(255, 255, 255, .08);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .lista i {
+            color: #ffb000;
+            margin-right: 8px;
+        }
+
+        .sobre img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, .35);
+            transition: .4s;
+        }
+
+        .sobre img:hover {
+            transform: scale(1.03);
+        }
+
+        .titulo {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .titulo::after {
+            content: "";
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+            display: block;
+            margin: 15px auto;
+            border-radius: 10px;
+        }
+
+        .programacao {
+            display: grid;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .dia h3 {
+            font-size: 1.5rem;
+            color: #ffb000;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary);
+            padding-left: 10px;
+        }
+
+        .grid-shows {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .show {
+            background: rgba(107, 52, 27, 0.4);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .show .hora {
+            display: inline-block;
+            background: var(--primary);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .show h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .show p {
+            font-size: 0.9rem;
+            color: var(--cinza);
+        }
+
+        .galeria {
+            margin-bottom: 80px;
+        }
+
+        .grid-galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-galeria img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: .3s;
+        }
+
+        .grid-galeria img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        @media(max-width:900px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .sobre {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<a href="eventos.html" class="voltar">←</a>
+    <a href="eventos.html" class="voltar">
+        <i class="ri-arrow-left-line"></i>
+    </a>
 
-<main>
-
-  <section class="descricao-evento">
-    <h2>Festejos de Nossa Senhora da Conceição</h2>
-
-    <p>
-      A tradicional Festa da Padroeira é um dos momentos mais marcantes e de grande devoção em Pedro II, reunindo milhares de fiéis e visitantes em celebrações religiosas e culturais.
-    </p>
-
-    <p>
-      Além das missas e procissões, o evento conta com apresentações culturais na praça, barracas de comidas típicas e momentos de confraternização comunitária.
-    </p>
-  </section>
-
-  <div class="linha"></div>
-
-  <section class="programacao">
-    <h2>Programação do Evento</h2>
-
-    <div class="dia-programacao">
-      <h3> Domingo • 28 de Novembro</h3>
-
-      <div class="item-programacao">
-        <span class="horario">05:00</span>
-        <div class="info">
-          <strong>Abertura dos festejos</strong>
-          <p>Igreja Matriz de Nossa Senhora da Conceição</p>
+    <section class="hero">
+        <div>
+            <h1>Festa da Padroeira</h1>
+            <p>Celebração de fé e tradição na Terra da Opala.</p>
+            <a href="#programacao" class="btn">Ver Programação</a>
         </div>
-      </div>
+    </section>
 
-        <div class="item-programacao">
-          <span class="horario">17:30</span>
-          <div class="info">
-            <strong>Procissão</strong>
-            <p>Igreja Matriz de Nossa Senhora da Conceição</p>
-          </div>
-        </div>
+    <div class="container">
+        
+        <section class="info">
+            <div class="card-info">
+                <i class="ri-calendar-event-line"></i>
+                <h3>Data</h3>
+                <p>28 Nov a 08 Dez</p>
+            </div>
 
-      <div class="item-programacao">
-        <span class="horario">19:00</span>
-        <div class="info">
-          <strong>Missa</strong>
-          <p>Praça da Matriz</p>
-        </div>
-      </div>
+            <div class="card-info">
+                <i class="ri-map-pin-line"></i>
+                <h3>Local</h3>
+                <p>Igreja Matriz de P2</p>
+            </div>
 
-      <div class="item-programacao">
-        <span class="horario">21:00</span>
-        <div class="info">
-          <strong>Apresentação da Banda de Música Mestre alessandro</strong>
-          <p>Palco da Praça da Matriz</p>
-        </div>
-      </div>
+            <div class="card-info">
+                <i class="ri-heart-line"></i>
+                <h3>Evento</h3>
+                <p>Religioso e Cultural</p>
+            </div>
 
-    <div class="dia-programacao">
-      <h3> Segunda-Feira • 29 de Dezembro</h3>
+            <div class="card-info">
+                <i class="ri-music-2-line"></i>
+                <h3>Atrações</h3>
+                <p>Bandas locais e leilões</p>
+            </div>
+        </section>
 
-      <div class="item-programacao">
-        <span class="horario">19:00</span>
-        <div class="info">
-          <strong>Missa</strong>
-          <p>Principais ruas do centro</p>
-        </div>
-      </div>
-    
-      <div class="item-programacao">
-        <span class="horario">20:30</span>
-        <div class="info">
-          <strong>Movimento de Barracas e Leilão</strong>
-          <p>Praça da Matriz • Espaço Cultural</p>
-        </div>
-      </div>
-   
+        <section class="sobre">
+            <div>
+                <h2>Festejos de Nossa Senhora da Conceição</h2>
+                <p>A tradicional Festa da Padroeira é um dos momentos mais marcantes e de grande devoção em Pedro II, reunindo milhares de fiéis e visitantes em celebrações religiosas e culturais.</p>
+                <p>Além das missas e procissões, o evento conta com apresentações culturais na praça, barracas de comidas típicas e momentos de confraternização comunitária.</p>
+                
+                <div class="lista">
+                    <div><i class="ri-check-line"></i>Missas e Novenas</div>
+                    <div><i class="ri-check-line"></i>Procissões</div>
+                    <div><i class="ri-check-line"></i>Barracas Culturais</div>
+                    <div><i class="ri-check-line"></i>Tradicional Leilão</div>
+                </div>
+            </div>
+            <img src="igreja.jpg" alt="Igreja Matriz">
+        </section>
+
+        <h2 class="titulo" id="programacao">Programação Oficial</h2>
+        
+        <section class="programacao">
+            
+            <div class="dia">
+                <h3>Domingo • 28 de Novembro</h3>
+                <div class="grid-shows">
+                    <div class="show">
+                        <span class="hora">05:00</span>
+                        <h4>Abertura dos Festejos</h4>
+                        <p><i class="ri-map-pin-2-line"></i> Igreja Matriz</p>
+                    </div>
+                    <div class="show">
+                        <span class="hora">17:30</span>
+                        <h4>Procissão de Abertura</h4>
+                        <p><i class="ri-map-pin-2-line"></i> Ruas do Centro</p>
+                    </div>
+                    <div class="show">
+                        <span class="hora">19:00</span>
+                        <h4>Missa Festiva</h4>
+                        <p><i class="ri-map-pin-2-line"></i> Praça da Matriz</p>
+                    </div>
+                    <div class="show">
+                        <span class="hora">21:00</span>
+                        <h4>Banda Mestre Alessandro</h4>
+                        <p><i class="ri-map-pin-2-line"></i> Palco da Praça</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dia">
+                <h3>Segunda-feira • 29 de Novembro</h3>
+                <div class="grid-shows">
+                    <div class="show">
+                        <span class="hora">19:00</span>
+                        <h4>Missa / Novena</h4>
+                        <p><i class="ri-map-pin-2-line"></i> Igreja Matriz</p>
+                    </div>
+                    <div class="show">
+                        <span class="hora">20:30</span>
+                        <h4>Movimento de Barracas e Leilão</h4>
+                        <p><i class="ri-map-pin-2-line"></i> Espaço Cultural</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="galeria">
+            <h2 class="titulo">Galeria</h2>
+            <div class="grid-galeria">
+                <img src="igreja.jpg" alt="Igreja Matriz Pedro II">
+                <img src="proci.jpg" alt="Procissão em Pedro II">
+                <img src="ssao.jpg" alt="Praça da Matriz movimentada">
+            </div>
+        </section>
     </div>
-  </section>
-
-  <div class="linha"></div>
-
-  <section class="galeria">
-    <img src="igreja.jpg" alt="Igreja Matriz Pedro II">
-    <img src="proci.jpg" alt="Procissão em Pedro II">
-    <img src="ssao.jpg" alt="Praça da Matriz movimentada">
-  </section>
-
-</main>
 
 </body>
 </html>
+</body>
