@@ -349,7 +349,7 @@
                 </div>
             </div>
 
-            <div class="card-evento" style="background-image: url('artes.jpeg');">
+            <div class="card-evento" style="background-image: url('artesa.jpg');">
                 <div class="info-evento">
                     <span class="categoria"><i class="ri-palette-line"></i> Artesanato</span>
                     <h3 class="nome-evento">Feira Artesanal</h3>
@@ -379,7 +379,6 @@
     </main>
 
     <script>
-        // 1. Controle do Botão Voltar ao Topo (Melhorado)
         const btn = document.getElementById('btnVoltar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > window.innerHeight * 0.4) {
@@ -389,19 +388,17 @@
             }
         });
 
-        // 2. Tornar os Cards Inteiramente Clicáveis via JS
-        // Isso evita quebrar o layout do CSS usando tags <a> em volta do card
+   
         const cards = document.querySelectorAll('.card-evento');
         
-        // Mapeia qual página cada card deve abrir baseado no nome do evento
+
         const paginasEventos = {
             "Festival de Inverno": "festival.html",
-            "Feira Artesanal": "artesanato.html", // Mude para o nome correto do seu arquivo da feira
+            "Feira Artesanal": "artesanato.html",
             "Festa da Padroeira": "festejo.html"
         };
 
         cards.forEach(card => {
-            // Deixa o cursor com formato de "mãozinha" para indicar que é clicável
             card.style.cursor = 'pointer';
             
             card.addEventListener('click', () => {
@@ -414,11 +411,8 @@
             });
         });
 
-        // 3. Efeito Scroll Reveal (Revelar os cards conforme desce a página)
-        // Cria uma animação suave de entrada para a seção de destaque
         const secaoDestaque = document.querySelector('.evento-destaque');
         
-        // Configura o estilo inicial da animação via JS
         secaoDestaque.style.opacity = '0';
         secaoDestaque.style.transform = 'translateY(30px)';
         secaoDestaque.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
@@ -427,20 +421,18 @@
             const elementoTopo = secaoDestaque.getBoundingClientRect().top;
             const janelaAltura = window.innerHeight;
             
-            // Ativa quando o bloco de destaque aparece na tela
             if (elementoTopo < janelaAltura - 50) {
                 secaoDestaque.style.opacity = '1';
                 secaoDestaque.style.transform = 'translateY(0)';
-                // Remove o evento depois que animou a primeira vez
                 window.removeEventListener('scroll', revealOnScroll);
             }
         };
 
         window.addEventListener('scroll', revealOnScroll);
-        // Executa uma vez no início caso o usuário já recarregue a página no meio
         revealOnScroll(); 
     </script>
    
     
 </body>
 </html>
+
