@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feira Artesanal - Tour P2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <style>
+        :root {
+            --primary-color: #E50000;
+            --background-dark: #4e2c13;
+            --text-light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #4e2c13;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        header {
+            background-color: var(--background-dark);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5vw;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-light);
+        }
+
+        .logo-img {
+            width: 50px;
+            height: auto;
+        }
+
+        .links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .links a {
+            font-weight: 500;
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: #d6d6d6;
+            transition: all 0.3s ease;
+        }
+
+        .links a:hover, .links li.ativo a {
+            color: #ffffff;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .banner-secao {
+            height: 45vh;
+            background-image:url(feirinha.png);
+            background-size: cover;
+            background-position: center;
+            background-color: rgba(0,0,0,0.6);
+            background-blend-mode: darken;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5vw;
+        }
+
+        .banner-conteudo {
+            color: white;
+        }
+
+        .banner-conteudo .categoria-banner {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .banner-conteudo h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .banner-conteudo p {
+            font-weight: 300;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 5vw;
+        }
+
+        .titulo-secao {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .titulo-secao::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .grid-infos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .info-card {
+            background-color: #6b341b;
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .info-card h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #f3efef;
+            font-weight: 600;
+            margin: 5px 0 2px;
+        }
+
+    .info-card p {
+           font-size: 1.05rem;
+           font-weight: 700;
+           color: #ffffff;
+        }
+
+        .sobre {
+            background-color: #6b341b;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .sobre h2 {
+            font-size: 1.6rem;
+            color:#ffffff;
+            margin-bottom: 15px;
+        }
+
+        .sobre p {
+            font-weight: 300;
+            color: #fafafa;
+            margin-bottom: 12px;
+        }
+
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card-produto {
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-produto:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-produto img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #e9dfd6;
+        }
+
+        .produto-corpo {
+            padding: 20px;
+        }
+
+        .produto-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 6px;
+        }
+
+        .produto-corpo h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--background-dark);
+            margin-bottom: 6px;
+        }
+
+        .produto-corpo p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #666;
+        }
+
+        .acoes {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(229, 0, 0, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #ffffff;
+            color: var(--background-dark);
+            transform: scale(1.05);
+        }
+
+        .voltar {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            font-size: 1.5rem;
+            z-index: 2000;
+            background: var(--background-dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .voltar.mostrar {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .voltar:hover {
+            background-color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .banner-secao {
+                height: 35vh;
+            }
+            .banner-conteudo h1 {
+                font-size: 2.2rem;
+            }
+            .sobre {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#" class="voltar" id="btnVoltar"><i class="ri-arrow-up-line"></i></a>
+
+    <header>
+        <nav class="menu">
+            <span class="logo">
+                <img src="logo2.png" alt="Logo" class="logo-img">
+                TOUR P2
+            </span>
+            <ul class="links">
+                <li><a href="tour.html">Início</a></li>
+                <li><a href="hospedagens.html">Hospedagens</a></li>
+                <li><a href="pontosturisticos.html">Pontos Turísticos</a></li>
+                <li class="ativo"><a href="eventos.html">Eventos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="banner-secao">
+        <div class="banner-conteudo">
+            <span class="categoria-banner"><i class="ri-palette-line"></i> Artesanato</span>
+            <h1>Feira Artesanal</h1>
+            <p>O talento das mãos de Pedro II em um só lugar</p>
+        </div>
+    </section>
+
+    <main class="container">
+
+        <div class="grid-infos">
+            <div class="info-card">
+                <i class="ri-calendar-line"></i>
+                <h3>Quando</h3>
+                <p>Junho</p>
+            </div>
+            <div class="info-card">
+                <i class="ri-map-pin-2-fill"></i>
+                <h3>Onde</h3>
+                <p>Praça da Matriz</p>
+            </div>
+            <div class="info-card">
+                <i class="ri-time-line"></i>
+                <h3>Horário</h3>
+                <p>07h às 22h</p>
+            </div>
+            <div class="info-card">
+                <i class="ri-ticket-line"></i>
+                <h3>Entrada</h3>
+                <p>Gratuita</p>
+            </div>
+        </div>
+
+        <section class="sobre">
+            <h2>Sobre a feira</h2>
+            <p>Escreva aqui um parágrafo contando como surgiu a feira, quem participa e por que ela é importante para a cultura de Pedro II.</p>
+            <p>Segundo parágrafo: fale do clima do evento, das atrações que acontecem junto e do que o visitante pode esperar.</p>
+        </section>
+
+        <h2 class="titulo-secao">O que você encontra</h2>
+
+        <div class="grid-produtos">
+
+            <div class="card-produto">
+                <img src="" alt="Artesanato em fios">
+                <div class="produto-corpo">
+                    <span class="produto-tag"><i class="ri-scissors-2-line"></i> Tradição</span>
+                    <h3>Artesanato em fios</h3>
+                    <p>Peças feitas à mão com técnicas passadas de geração em geração.</p>
+                </div>
+            </div>
+
+            <div class="card-produto">
+                <img src="" alt="Tapeçarias">
+                <div class="produto-corpo">
+                    <span class="produto-tag"><i class="ri-palette-line"></i> Arte</span>
+                    <h3>Tapeçarias</h3>
+                    <p>Tapeçarias famosas, cheias de cor e identidade local.</p>
+                </div>
+            </div>
+
+            <div class="card-produto">
+                <img src="" alt="Joias de opala">
+                <div class="produto-corpo">
+                    <span class="produto-tag"><i class="ri-vip-diamond-line"></i> Opala</span>
+                    <h3>Joias de opala</h3>
+                    <p>Joias feitas com a opala local, a pedra símbolo da cidade.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- BOTÕES -->
+        <div class="acoes">
+            <a href="eventos.html" class="btn"><i class="ri-arrow-left-line"></i> Voltar aos Eventos</a>
+        </div>
+
+    </main>
+
+    <script>
+        const btn = document.getElementById('btnVoltar');
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > window.innerHeight * 0.4) {
+                btn.classList.add('mostrar');
+            } else {
+                btn.classList.remove('mostrar');
+            }
+        });
+    </script>
+
+</body>
+</html>
